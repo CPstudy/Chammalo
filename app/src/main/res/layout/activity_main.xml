@@ -3,12 +3,77 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical"
     tools:context="com.guk2zzada.chammalo.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titlebar"
+        android:paddingLeft="24dp">
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/titleText"
+            android:textColor="@color/colorText"
+            tools:text="참말로"/>
+
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@color/bg">
+        android:layout_height="150dp"
+        android:layout_margin="@dimen/basicMargin"
+        android:gravity="center"
+        android:background="@drawable/bg_main"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txtSmoke"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toStartOf="@+id/txtDate"
+                android:text="금연"
+                android:textSize="22sp"
+                android:textColor="@color/colorText" />
+
+            <TextView
+                android:id="@+id/txtDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtSmoke"
+                android:layout_centerHorizontal="true"
+                android:textSize="50sp"
+                android:textColor="@color/colorText"
+                tools:text="205" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/txtDate"
+                android:layout_toEndOf="@+id/txtDate"
+                android:layout_marginLeft="8dp"
+                android:text="일 째"
+                android:textSize="22sp"
+                android:textColor="@color/colorText" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
     </LinearLayout>
 
 </LinearLayout>

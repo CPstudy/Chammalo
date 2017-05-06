@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context="com.guk2zzada.chammalo.MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/layTitle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titlebar"
+        android:paddingLeft="24dp">
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="정보 입력"
+            android:textSize="@dimen/titleText"
+            android:textColor="@color/colorText"
+            tools:text="정보 입력"/>
+
+    </RelativeLayout>
+
+    <ViewFlipper
+        android:id="@+id/viewFlipper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/layButton"
+        android:layout_below="@+id/layTitle">
+
+        <!-- 첫 번째 페이지 -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/layoutMargin"
+            android:gravity="center">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/layAccount">
+
+                <ImageView
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/img_account" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/layAccount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/layoutMargin"
+                        android:text="이름"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/txtSize"/>
+
+                    <EditText
+                        android:id="@+id/edtName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:gravity="center"
+                        android:background="@drawable/edittext_white"
+                        android:textSize="@dimen/txtSize"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layoutMargin"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/layoutMargin"
+                        android:text="생일"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/txtSize"/>
+
+                    <Button
+                        android:id="@+id/btnBirth"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:background="@drawable/btn_transparent"
+                        android:textSize="@dimen/txtSize"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layoutMargin"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/layoutMargin"
+                        android:text="성별"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/txtSize"/>
+
+                    <Button
+                        android:id="@+id/btnMale"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="10dp"
+                        android:background="@drawable/btn_transparent"
+                        android:text="남자"
+                        android:textSize="@dimen/txtSize"/>
+
+                    <View
+                        android:layout_width="@dimen/layoutMargin"
+                        android:layout_height="1dp"/>
+
+                    <Button
+                        android:id="@+id/btnFemale"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="10dp"
+                        android:background="@drawable/btn_transparent"
+                        android:text="여자"
+                        android:textSize="@dimen/txtSize"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <!-- 두 번째 페이지 -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/layoutMargin"
+            android:gravity="center">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/laySmoke">
+
+                <ImageView
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/img_smoking" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/laySmoke"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/layoutMargin"
+                        android:text="하루 흡연량"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/txtSize"/>
+
+                    <EditText
+                        android:id="@+id/edtSmoke"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:gravity="center"
+                        android:background="@drawable/edittext_white"
+                        android:inputType="numberSigned"
+                        android:textSize="@dimen/txtSize"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layoutMargin"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/layoutMargin"
+                        android:text="흡연 시작일"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/txtSize"/>
+
+                    <Button
+                        android:id="@+id/btnSmoke"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:background="@drawable/btn_transparent"
+                        android:textSize="@dimen/txtSize"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layoutMargin"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/layoutMargin"
+                        android:text="하루 목표치"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/txtSize"/>
+
+                    <EditText
+                        android:id="@+id/edtGoalSmoke"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:gravity="center"
+                        android:background="@drawable/edittext_white"
+                        android:inputType="numberSigned"
+                        android:textSize="@dimen/txtSize"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <!-- 세 번째 페이지 -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/layoutMargin"
+            android:gravity="center">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/layDrink">
+
+                <ImageView
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/img_drinking" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/layDrink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/layoutMargin"
+                        android:text="하루 음주량"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/txtSize"/>
+
+                    <EditText
+                        android:id="@+id/edtDrink"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:gravity="center"
+                        android:background="@drawable/edittext_white"
+                        android:inputType="numberSigned"
+                        android:textSize="@dimen/txtSize"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layoutMargin"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/layoutMargin"
+                        android:text="음주 시작일"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/txtSize"/>
+
+                    <Button
+                        android:id="@+id/btnDrink"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:background="@drawable/btn_transparent"
+                        android:textSize="@dimen/txtSize"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layoutMargin"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/layoutMargin"
+                        android:text="하루 목표치"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/txtSize"/>
+
+                    <EditText
+                        android:id="@+id/edtGoalDrink"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:gravity="center"
+                        android:background="@drawable/edittext_white"
+                        android:inputType="numberSigned"
+                        android:textSize="@dimen/txtSize"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </ViewFlipper>
+
+    <LinearLayout
+        android:id="@+id/layButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/layoutMargin"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnPrev"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/btn_dialog"
+            android:text="이전"/>
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/btn_dialog"
+            android:text="다음"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

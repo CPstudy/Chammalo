@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_dialog"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titlebar"
+        android:paddingLeft="24dp">
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="날짜 선택"
+            android:textSize="@dimen/titleText"
+            android:textColor="@color/colorText" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dialogMargin">
+
+        <DatePicker
+            android:id="@+id/datePicker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:datePickerMode="spinner"
+            android:calendarViewShown="false"
+            android:headerBackground="@color/colorText"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dialogMargin"
+        android:gravity="right"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/dbtn_cancel"
+            android:layout_width="@dimen/btnDialogWidth"
+            android:layout_height="@dimen/btnDialogHeight"
+            android:background="@drawable/btn_dialog"
+            android:text="취소"
+            android:textSize="@dimen/btnDialog"/>
+
+        <Button
+            android:id="@+id/dbtn_ok"
+            android:layout_width="@dimen/btnDialogWidth"
+            android:layout_height="@dimen/btnDialogHeight"
+            android:background="@drawable/btn_dialog"
+            android:text="확인"
+            android:textSize="@dimen/btnDialog"/>
+
+    </LinearLayout>
+
+</LinearLayout>

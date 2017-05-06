@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="basicMargin">8dp</dimen>
+    <dimen name="layoutMargin">16dp</dimen>
+    <dimen name="dialogMargin">8dp</dimen>
+    <dimen name="titlebar">54dp</dimen>
+    <dimen name="titleText">20sp</dimen>
+    <dimen name="txtSize">18sp</dimen>
+    <dimen name="btnPadding">36dp</dimen>
+
+
+    <!-- Dialog -->
+    <dimen name="btnDialogWidth">60dp</dimen>
+    <dimen name="btnDialogHeight">40dp</dimen>
+    <dimen name="btnDialog">15sp</dimen>
+
+    <dimen name="status">24dp</dimen>
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.1" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- 그냥 -->
+    <item
+        android:state_focused="false"
+        android:drawable="@drawable/bg_edittext_gray" />
+
+    <!-- 선택 -->
+    <item
+        android:state_focused="true"
+        android:drawable="@drawable/bg_edittext_white" />
+
+</selector>

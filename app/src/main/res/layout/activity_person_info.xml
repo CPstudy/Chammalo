@@ -6,30 +6,11 @@
     android:background="@drawable/bg"
     tools:context="com.guk2zzada.chammalo.MainActivity">
 
-    <RelativeLayout
-        android:id="@+id/layTitle"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/titlebar"
-        android:paddingLeft="24dp">
-
-        <TextView
-            android:id="@+id/txtTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:text="정보 입력"
-            android:textSize="@dimen/titleText"
-            android:textColor="@color/colorText"
-            tools:text="정보 입력"/>
-
-    </RelativeLayout>
-
     <ViewFlipper
         android:id="@+id/viewFlipper"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/layButton"
-        android:layout_below="@+id/layTitle">
+        android:layout_above="@+id/layButton">
 
         <!-- 첫 번째 페이지 -->
         <RelativeLayout
@@ -37,6 +18,14 @@
             android:layout_height="match_parent"
             android:layout_margin="@dimen/layoutMargin"
             android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/titlebar"
+                android:gravity="center"
+                android:text="회원 정보"
+                android:textSize="@dimen/titleText"
+                android:textColor="@color/colorText"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -157,6 +146,14 @@
             android:layout_margin="@dimen/layoutMargin"
             android:gravity="center">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/titlebar"
+                android:gravity="center"
+                android:text="흡연 정보"
+                android:textSize="@dimen/titleText"
+                android:textColor="@color/colorText"/>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -262,6 +259,14 @@
             android:layout_height="match_parent"
             android:layout_margin="@dimen/layoutMargin"
             android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/titlebar"
+                android:gravity="center"
+                android:text="음주 정보"
+                android:textSize="@dimen/titleText"
+                android:textColor="@color/colorText"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"

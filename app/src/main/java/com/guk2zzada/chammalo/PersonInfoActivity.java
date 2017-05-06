@@ -31,17 +31,24 @@ public class PersonInfoActivity extends Activity {
     Animation slide_in_left, slide_out_right;
     Animation slide_in_right, slide_out_left;
 
-    int bYear;
-    int bMonth;
-    int bDay;
+    // 생년월일
+    int bYear = 2017;
+    int bMonth = 1;
+    int bDay = 1;
 
-    int sYear;
-    int sMonth;
-    int sDay;
+    // 흡연 시작일
+    int sYear = 2017;
+    int sMonth = 1;
+    int sDay = 1;
 
-    int dYear;
-    int dMonth;
-    int dDay;
+    // 음주 시작일
+    int dYear = 2017;
+    int dMonth = 1;
+    int dDay = 1;
+
+    int gender = 0;     // 남자: 0, 여자: 1
+
+    // 흡연, 음주 시작일 전달
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +74,10 @@ public class PersonInfoActivity extends Activity {
         slide_out_right = AnimationUtils.loadAnimation(this, R.anim.slide_out_right);
         slide_in_right = AnimationUtils.loadAnimation(this, R.anim.slide_in_right);
         slide_out_left = AnimationUtils.loadAnimation(this, R.anim.slide_out_left);
+
+        // 뷰 플리퍼 제어 버튼 초기 상태 설정
+        btnPrev.setEnabled(false);
+        btnPrev.setText("");
 
         // 버튼 텍스트 초기화
         btnBirth.setText(String.format(Locale.KOREA, "%4d년 %2d월 %2d일", 2017, 1, 1));
@@ -114,9 +125,21 @@ public class PersonInfoActivity extends Activity {
             @Override
             public void onClick(View v) {
                 // 뷰 플리퍼 이전 버튼 클릭시
-                viewFlipper.setInAnimation(slide_in_left);
-                viewFlipper.setOutAnimation(slide_out_right);
-                viewFlipper.showPrevious();
+                if(viewFlipper.getDisplayedChild() != 0) {
+                    viewFlipper.setInAnimation(slide_in_left);
+                    viewFlipper.setOutAnimation(slide_out_right);
+                    viewFlipper.showPrevious();
+                    if(viewFlipper.getDisplayedChild() == 0) {
+                        btnPrev.setText("");
+                        btnPrev.setEnabled(false);
+                    } else {
+                        btnPrev.setText("이전");
+                        btnNext.setText("다음");
+                        btnPrev.setEnabled(true);
+                    }
+                } else {
+
+                }
             }
         });
 
@@ -124,9 +147,67 @@ public class PersonInfoActivity extends Activity {
             @Override
             public void onClick(View v) {
                 // 뷰 플리퍼 다음 버튼 클릭시
-                viewFlipper.setInAnimation(slide_in_right);
-                viewFlipper.setOutAnimation(slide_out_left);
-                viewFlipper.showNext();
+                if(viewFlipper.getDisplayedChild() != 2) {
+                    viewFlipper.setInAnimation(slide_in_right);
+                    viewFlipper.setOutAnimation(slide_out_left);
+                    viewFlipper.showNext();
+                    if(viewFlipper.getDisplayedChild() == 2) {
+                        btnNext.setText("완료");
+                    } else {
+                        btnNext.setText("다음");
+                        btnPrev.setText("이전");
+                        btnPrev.setEnabled(true);
+                    }
+                } else {
+                    String strName = "";
+                    int iSmoke;
+                    int iDrink;
+                    int iGoalSmoke;
+                    int iGoalDrink;
+
+                    try {
+                        strName = edtName.getText().toString();
+                    } catch (Exception e) {
+                        strName = "이명박";
+                    }
+
+                    try {
+                        iSmoke = Integer.parseInt(edtSmoke.getText().toString());
+                    } catch (NumberFormatException e) {
+                        iSmoke = 0;
+                    }
+
+                    try {
+                        iDrink = Integer.parseInt(edtDrink.getText().toString());
+                    } catch (NumberFormatException e) {
+                        iDrink = 0;
+                    }
+
+                    try {
+                        iGoalSmoke = Integer.parseInt(edtGoalSmoke.getText().toString());
+                    } catch (NumberFormatException e) {
+                        iGoalSmoke = 0;
+                    }
+
+                    try {
+                        iGoalDrink = Integer.parseInt(edtGoalDrink.getText().toString());
+                    } catch (NumberFormatException e) {
+                        iGoalDrink = 0;
+                    }
+
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    intent.putExtra("strName", strName);
+                    intent.putExtra("iSmoke", iSmoke);
+                    intent.putExtra("iDrink", iDrink);
+                    intent.putExtra("iGoalSmoke", iGoalSmoke);
+                    intent.putExtra("iGoalDrink", iGoalDrink);
+                    intent.putExtra("iGender", gender);
+                    intent.putExtra("strBirth", String.format(Locale.KOREA, "%04d%02d%02d", bYear, bMonth, bDay));
+                    intent.putExtra("strSmoke", String.format(Locale.KOREA, "%04d%02d%02d", sYear, sMonth, sDay));
+                    intent.putExtra("strDrink", String.format(Locale.KOREA, "%04d%02d%02d", dYear, dMonth, dDay));
+                    startActivity(intent);
+                    finish();
+                }
             }
         });
     }

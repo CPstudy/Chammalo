@@ -15,26 +15,52 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:text="날짜 선택"
+            android:text="얼마나 피웠니?"
             android:textSize="@dimen/titleText"
             android:textColor="@color/colorText" />
 
     </RelativeLayout>
 
-    <LinearLayout
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/layoutMargin" />
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dialogMargin">
 
-        <DatePicker
-            android:id="@+id/datePicker"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:datePickerMode="spinner"
-            android:calendarViewShown="false"
-            android:headerBackground="@color/colorText"/>
+        <Button
+            android:id="@+id/dbtnMinus"
+            android:layout_width="@dimen/btnDialogPlus"
+            android:layout_height="@dimen/btnDialogPlus"
+            android:layout_toStartOf="@+id/dtxtNum"
+            android:background="@drawable/btn_circle_white"
+            android:text="-"/>
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/dtxtNum"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:text="1"
+            android:textColor="@color/colorText"
+            android:textSize="@dimen/txtDialogNum" />
+
+        <Button
+            android:id="@+id/dbtnPlus"
+            android:layout_width="@dimen/btnDialogPlus"
+            android:layout_height="@dimen/btnDialogPlus"
+            android:layout_toEndOf="@+id/dtxtNum"
+            android:background="@drawable/btn_circle_white"
+            android:text="+"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/layoutMargin" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -44,7 +70,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/dbtn_cancel"
+            android:id="@+id/dbtnCancel"
             android:layout_width="@dimen/btnDialogWidth"
             android:layout_height="@dimen/btnDialogHeight"
             android:background="@drawable/btn_dialog"
@@ -52,7 +78,7 @@
             android:textSize="@dimen/btnDialog"/>
 
         <Button
-            android:id="@+id/dbtn_ok"
+            android:id="@+id/dbtnOk"
             android:layout_width="@dimen/btnDialogWidth"
             android:layout_height="@dimen/btnDialogHeight"
             android:background="@drawable/btn_dialog"

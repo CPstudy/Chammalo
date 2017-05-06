@@ -13,6 +13,8 @@
     <dimen name="btnDialogWidth">60dp</dimen>
     <dimen name="btnDialogHeight">40dp</dimen>
     <dimen name="btnDialog">15sp</dimen>
+    <dimen name="btnDialogPlus">40dp</dimen>
+    <dimen name="txtDialogNum">30sp</dimen>
 
     <dimen name="status">24dp</dimen>
 </resources>

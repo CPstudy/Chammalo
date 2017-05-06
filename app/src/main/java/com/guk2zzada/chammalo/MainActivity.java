@@ -27,7 +27,7 @@ public class MainActivity extends Activity {
     TextView txtDate;
     TextView txtNumSmoke, txtNumDrink;
     ImageButton btnSmoke, btnDrink;
-    Button btnChallenge;
+    Button btnChallenge, btnBoard;
 
     int iSmoke = 0;
     int iDrink = 0;
@@ -52,6 +52,7 @@ public class MainActivity extends Activity {
         btnSmoke = (ImageButton) findViewById(R.id.btnSmoke);
         btnDrink = (ImageButton) findViewById(R.id.btnDrink);
         btnChallenge = (Button) findViewById(R.id.btnChallenge);
+        btnBoard = (Button) findViewById(R.id.btnBoard);
 
         txtDate.setText("250");
 
@@ -73,6 +74,14 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ChallengeActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnBoard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), BoardListActivity.class);
                 startActivity(intent);
             }
         });

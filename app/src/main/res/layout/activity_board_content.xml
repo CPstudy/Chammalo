@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical"
+    tools:context="com.guk2zzada.chammalo.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titlebar">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="게시판"
+            android:textSize="@dimen/titleText"
+            android:textColor="@color/colorText"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/basicMargin"
+                android:padding="@dimen/basicMargin"
+                android:background="@drawable/bg_main">
+
+                <TextView
+                    android:id="@+id/txtTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="게시판 제목 게시판 제목 게시판 제목 게시판 제목"
+                    android:textSize="@dimen/txtSize"/>
+
+                <TextView
+                    android:id="@+id/txtWriter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtTitle"
+                    android:layout_marginTop="@dimen/basicMargin"
+                    android:layout_alignParentStart="true"
+                    android:text="이명박"
+                    android:textColor="@color/txtGray"/>
+
+                <TextView
+                    android:id="@+id/txtTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtTitle"
+                    android:layout_marginTop="@dimen/basicMargin"
+                    android:layout_alignParentEnd="true"
+                    android:text="2017-01-01 23:14"
+                    android:textColor="@color/txtGray"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/txtContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/basicMargin"
+                android:text="@string/test"
+                android:textSize="@dimen/txtSize"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

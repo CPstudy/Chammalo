@@ -44,7 +44,7 @@
 
 레이아웃에 관한 규칙
 ------
-#### 기본 dimens.xml 파일에 정의되어 있음
+#### 기본 [dimens.xml](https://github.com/CPstudy/Chammalo/blob/master/app/src/main/res/values/dimens.xml) 파일에 정의되어 있음
 #### 여백(margin & padding)
 > 보통 여백 <code>basicMargin: 8dp</code><br>
 > 위젯 사이 여백 <code>layoutMargin: 16dp</code><br>
@@ -60,7 +60,7 @@
 모양과 색상에 관한 규칙
 ------
 #### 코드로 만들 수 있는 도형은 이미지로 만들지 말고 코드로 작성한다.
-#### drawable 폴더에 xml 파일로 만들어 사용한다.
+#### [drawable](https://github.com/CPstudy/Chammalo/tree/master/app/src/main/res/drawable) 폴더에 xml 파일로 만들어 사용한다.
 > 전체 배경 <code>bg.xml</code><br>
 > 다이얼로그 배경 <code>bg_dialog.xml</code><br>
 > EditText 흰색 테두리 <code>bg_edittext_white</code><br>
@@ -71,6 +71,7 @@
 > 다이얼로그 버튼 <code>btn_dialog.xml</code><br>
 > 액티비티 버튼 <code>btn_transparent.xml</code><br>
 > 액티비티 흰색 테두리 버튼 <code>btn_white.xml</code><br>
+#### 색상코드는 모두 [colors.xml](https://github.com/CPstudy/Chammalo/blob/master/app/src/main/res/values/colors.xml)에 작성한다.
 #### 색상은 투명도를 넣어 배경이 살짝 보이게 한다.
 #### 이미지의 색상은 흰색으로 통일한다.
 #### 액티비티 전체 배경색은 선형 그라데이션을 사용하고 다음 색상을 사용한다.

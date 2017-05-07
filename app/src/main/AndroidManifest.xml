@@ -19,7 +19,8 @@
         </activity>
         <activity android:name=".ChallengeActivity" />
         <activity android:name=".BoardListActivity" />
-        <activity android:name=".BoardContentActivity"></activity>
+        <activity android:name=".BoardContentActivity" />
+        <activity android:name=".BoardActivity"></activity>
     </application>
 
 </manifest>

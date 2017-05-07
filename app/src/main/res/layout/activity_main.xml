@@ -36,44 +36,80 @@
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_margin="@dimen/basicMargin"
-                android:gravity="center"
                 android:background="@drawable/bg_main"
+                android:gravity="center"
                 android:orientation="vertical">
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/txtSmoke"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentTop="true"
-                        android:layout_toStartOf="@+id/txtDate"
-                        android:text="금연"
-                        android:textSize="22sp"
-                        android:textColor="@color/colorText" />
+                    <View
+                        android:layout_width="@dimen/layoutMargin"
+                        android:layout_height="1dp" />
 
-                    <TextView
-                        android:id="@+id/txtDate"
+                    <RelativeLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/txtSmoke"
-                        android:layout_centerHorizontal="true"
-                        android:textSize="50sp"
-                        android:textColor="@color/colorText"
-                        tools:text="205" />
+                        android:layout_height="wrap_content">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                        <com.guk2zzada.chammalo.GraphView
+                            android:id="@+id/graphView"
+                            android:layout_width="110dp"
+                            android:layout_height="110dp"
+                            android:padding="@dimen/basicMargin" />
+
+                        <TextView
+                            android:id="@+id/txtPercent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:text="50%"
+                            android:textSize="@dimen/txtSize" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_alignBaseline="@+id/txtDate"
-                        android:layout_toEndOf="@+id/txtDate"
-                        android:layout_marginLeft="8dp"
-                        android:text="일 째"
-                        android:textSize="22sp"
-                        android:textColor="@color/colorText" />
-                </RelativeLayout>
+                        android:layout_gravity="center"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/txtSmoke"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_toStartOf="@+id/txtDate"
+                            android:text="금연"
+                            android:textColor="@color/colorText"
+                            android:textSize="22sp" />
+
+                        <TextView
+                            android:id="@+id/txtDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txtSmoke"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="@color/colorText"
+                            android:textSize="50sp"
+                            tools:text="205" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBaseline="@+id/txtDate"
+                            android:layout_marginLeft="8dp"
+                            android:layout_toEndOf="@+id/txtDate"
+                            android:text="일 째"
+                            android:textColor="@color/colorText"
+                            android:textSize="22sp" />
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -81,17 +117,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/basicMargin"
-                android:padding="@dimen/layoutMargin"
-                android:gravity="center_horizontal"
                 android:background="@drawable/bg_main"
-                android:orientation="vertical">
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="@dimen/layoutMargin">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="오늘 먹은 담배와 술"
-                    android:textSize="@dimen/txtSize"
-                    android:textColor="@color/colorText"/>
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/txtSize" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -109,15 +145,15 @@
                         <ImageView
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/icon_smoke"
-                            android:scaleType="centerCrop"/>
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/icon_smoke" />
 
                         <TextView
                             android:id="@+id/txtNumSmoke"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0개비"
-                            android:textSize="@dimen/txtSize"/>
+                            android:textSize="@dimen/txtSize" />
 
                     </LinearLayout>
 
@@ -131,58 +167,19 @@
                         <ImageView
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/icon_drink"
-                            android:scaleType="centerCrop"/>
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/icon_drink" />
 
                         <TextView
                             android:id="@+id/txtNumDrink"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0잔"
-                            android:textSize="@dimen/txtSize"/>
+                            android:textSize="@dimen/txtSize" />
 
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:layout_margin="@dimen/basicMargin"
-                android:gravity="center_vertical">
-
-                <Button
-                    android:id="@+id/btnChallenge"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:elevation="1dp"
-                    android:padding="@dimen/layoutMargin"
-                    android:background="@drawable/btn_challenge_white"/>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:elevation="2dp">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_margin="@dimen/layoutMargin"
-                        android:src="@drawable/ic_stars_white_48dp" />
-
-                    <View
-                        android:layout_width="@dimen/layoutMargin"
-                        android:layout_height="1dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:text="도전 과제"
-                        android:textSize="@dimen/txtSize" />
-
-                </RelativeLayout>
-            </FrameLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -204,10 +201,10 @@
                         android:id="@+id/btnSmoke"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
+                        android:background="@drawable/btn_circle_smoke"
                         android:padding="8dp"
-                        android:src="@drawable/icon_smoke"
                         android:scaleType="centerCrop"
-                        android:background="@drawable/btn_circle_smoke"/>
+                        android:src="@drawable/icon_smoke" />
 
                     <View
                         android:layout_width="0dp"
@@ -218,10 +215,10 @@
                         android:id="@+id/btnDrink"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
+                        android:background="@drawable/btn_circle_drink"
                         android:padding="8dp"
-                        android:src="@drawable/icon_drink"
                         android:scaleType="centerCrop"
-                        android:background="@drawable/btn_circle_drink"/>
+                        android:src="@drawable/icon_drink" />
 
                     <View
                         android:layout_width="0dp"
@@ -232,7 +229,46 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/layoutMargin"/>
+                    android:layout_height="@dimen/layoutMargin" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_margin="@dimen/basicMargin"
+                    android:gravity="center_vertical">
+
+                    <Button
+                        android:id="@+id/btnChallenge"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/btn_challenge_white"
+                        android:elevation="1dp"
+                        android:padding="@dimen/layoutMargin" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:elevation="2dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_margin="@dimen/layoutMargin"
+                            android:src="@drawable/ic_stars_white_48dp" />
+
+                        <View
+                            android:layout_width="@dimen/layoutMargin"
+                            android:layout_height="1dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:text="도전 과제"
+                            android:textSize="@dimen/txtSize" />
+
+                    </RelativeLayout>
+                </FrameLayout>
 
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -244,9 +280,9 @@
                         android:id="@+id/btnBoard"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@drawable/btn_challenge_white"
                         android:elevation="1dp"
-                        android:padding="@dimen/layoutMargin"
-                        android:background="@drawable/btn_challenge_white"/>
+                        android:padding="@dimen/layoutMargin" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"

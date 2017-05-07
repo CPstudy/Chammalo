@@ -28,6 +28,8 @@ public class MainActivity extends Activity {
     TextView txtNumSmoke, txtNumDrink;
     ImageButton btnSmoke, btnDrink;
     Button btnChallenge, btnBoard;
+    GraphView graphView;
+    TextView txtPercent;
 
     int iSmoke = 0;
     int iDrink = 0;
@@ -53,6 +55,9 @@ public class MainActivity extends Activity {
         btnDrink = (ImageButton) findViewById(R.id.btnDrink);
         btnChallenge = (Button) findViewById(R.id.btnChallenge);
         btnBoard = (Button) findViewById(R.id.btnBoard);
+        graphView = (GraphView) findViewById(R.id.graphView);
+        txtPercent = (TextView) findViewById(R.id.txtPercent);
+        txtPercent.setText(graphView.setGraph(62, 100) + "%");
 
         txtDate.setText("250");
 
@@ -81,7 +86,7 @@ public class MainActivity extends Activity {
         btnBoard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), BoardListActivity.class);
+                Intent intent = new Intent(getApplicationContext(), BoardActivity.class);
                 startActivity(intent);
             }
         });

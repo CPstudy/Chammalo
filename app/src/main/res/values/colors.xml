@@ -5,6 +5,7 @@
     <color name="colorAccent">#ffffff</color>
     <color name="colorText">#FFFFFF</color>
     <color name="txtGray">#5affffff</color>
+    <color name="txtContent">#b4ffffff</color>
     <color name="ripple">#30FFFFFF</color>
 
     <color name="strokeWhite">#FFFFFF</color>

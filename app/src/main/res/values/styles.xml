@@ -8,7 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColor">@color/colorText</item>
         <item name="android:fitsSystemWindows">true</item>
-        <item name="android:statusBarColor">#252840</item>
+        <item name="android:statusBarColor">#2f4d68</item>
         <item name="android:datePickerStyle">@style/DatePicker</item>
     </style>
 

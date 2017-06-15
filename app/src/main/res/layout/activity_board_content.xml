@@ -73,7 +73,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/basicMargin"
                 android:text="@string/test"
-                android:textSize="@dimen/txtSize"/>
+                android:textSize="@dimen/txtSize"
+                android:textColor="@color/txtContent"/>
 
         </LinearLayout>
 

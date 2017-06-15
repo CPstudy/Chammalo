@@ -110,6 +110,7 @@ public class PersonInfoActivity extends Activity {
             public void onClick(View v) {
                 btnMale.setBackgroundResource(R.drawable.btn_white);
                 btnFemale.setBackgroundResource(R.drawable.btn_transparent);
+                gender = 0;
             }
         });
 
@@ -118,6 +119,7 @@ public class PersonInfoActivity extends Activity {
             public void onClick(View v) {
                 btnMale.setBackgroundResource(R.drawable.btn_transparent);
                 btnFemale.setBackgroundResource(R.drawable.btn_white);
+                gender = 1;
             }
         });
 

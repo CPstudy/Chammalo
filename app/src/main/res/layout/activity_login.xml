@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/layoutMargin"
+    android:background="@drawable/bg"
+    android:orientation="vertical"
+    tools:context="com.guk2zzada.chammalo.LoginActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titlebar">
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="@dimen/titleText"
+            android:textColor="@color/colorText"
+            tools:text="로그인"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/layoutMargin"
+                android:text="　아이디"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/txtSize"/>
+
+            <EditText
+                android:id="@+id/edtID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:gravity="center"
+                android:background="@drawable/edittext_white"
+                android:textSize="@dimen/txtSize"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/layoutMargin"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/layoutMargin"
+                android:text="패스워드"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/txtSize"/>
+
+            <EditText
+                android:id="@+id/edtPW"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:gravity="center"
+                android:background="@drawable/edittext_white"
+                android:inputType="textPassword"
+                android:textSize="@dimen/txtSize"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layoutMargin"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnJoin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:background="@drawable/btn_transparent"
+                android:text="회원가입"
+                android:textSize="@dimen/txtSize"/>
+
+            <View
+                android:layout_width="@dimen/layoutMargin"
+                android:layout_height="1dp"/>
+
+            <Button
+                android:id="@+id/btnSign"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:background="@drawable/btn_transparent"
+                android:text="로그인"
+                android:textSize="@dimen/txtSize"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

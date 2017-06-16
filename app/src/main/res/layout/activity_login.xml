@@ -19,7 +19,7 @@
             android:layout_centerInParent="true"
             android:textSize="@dimen/titleText"
             android:textColor="@color/colorText"
-            tools:text="로그인"/>
+            android:text="로그인"/>
 
     </RelativeLayout>
 

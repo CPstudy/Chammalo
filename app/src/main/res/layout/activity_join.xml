@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical"
+    tools:context="com.guk2zzada.chammalo.JoinActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titlebar">
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="회원가입"
+            android:textSize="@dimen/titleText"
+            android:textColor="@color/colorText"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/layoutMargin"
+                android:paddingEnd="@dimen/layoutMargin"
+                android:paddingTop="@dimen/basicMargin"
+                android:paddingBottom="@dimen/basicMargin"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text="아이디"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/txtSize"/>
+
+                <View
+                    android:layout_width="@dimen/layoutMargin"
+                    android:layout_height="1dp"/>
+
+                <EditText
+                    android:id="@+id/edtID"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="7"
+                    android:padding="10dp"
+                    android:gravity="center"
+                    android:background="@drawable/edittext_white"
+                    android:textSize="@dimen/txtSize"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/layoutMargin"
+                android:paddingEnd="@dimen/layoutMargin"
+                android:paddingTop="@dimen/basicMargin"
+                android:paddingBottom="@dimen/basicMargin"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text="암호"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/txtSize"/>
+
+                <View
+                    android:layout_width="@dimen/layoutMargin"
+                    android:layout_height="1dp"/>
+
+                <EditText
+                    android:id="@+id/edtPW1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="7"
+                    android:padding="10dp"
+                    android:gravity="center"
+                    android:background="@drawable/edittext_white"
+                    android:textSize="@dimen/txtSize"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/layoutMargin"
+                android:paddingEnd="@dimen/layoutMargin"
+                android:paddingTop="@dimen/basicMargin"
+                android:paddingBottom="@dimen/basicMargin"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text="암호 확인"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/txtSize"/>
+
+                <View
+                    android:layout_width="@dimen/layoutMargin"
+                    android:layout_height="1dp"/>
+
+                <EditText
+                    android:id="@+id/edtPW2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="7"
+                    android:padding="10dp"
+                    android:gravity="center"
+                    android:background="@drawable/edittext_white"
+                    android:textSize="@dimen/txtSize"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/layoutMargin"
+                android:paddingEnd="@dimen/layoutMargin"
+                android:paddingTop="@dimen/basicMargin"
+                android:paddingBottom="@dimen/basicMargin"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text="이름"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/txtSize"/>
+
+                <View
+                    android:layout_width="@dimen/layoutMargin"
+                    android:layout_height="1dp"/>
+
+                <EditText
+                    android:id="@+id/edtName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="7"
+                    android:padding="10dp"
+                    android:gravity="center"
+                    android:background="@drawable/edittext_white"
+                    android:textSize="@dimen/txtSize"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/layoutMargin"
+                android:paddingEnd="@dimen/layoutMargin"
+                android:paddingTop="@dimen/basicMargin"
+                android:paddingBottom="@dimen/basicMargin"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnMale"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:background="@drawable/btn_transparent"
+                    android:text="남자"
+                    android:textSize="@dimen/txtSize"/>
+
+                <View
+                    android:layout_width="@dimen/layoutMargin"
+                    android:layout_height="1dp"/>
+
+                <Button
+                    android:id="@+id/btnFemale"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:background="@drawable/btn_transparent"
+                    android:text="여자"
+                    android:textSize="@dimen/txtSize"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/layoutMargin"
+                android:paddingEnd="@dimen/layoutMargin"
+                android:paddingTop="@dimen/basicMargin"
+                android:paddingBottom="@dimen/basicMargin"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text="생일"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/txtSize"/>
+
+                <View
+                    android:layout_width="@dimen/layoutMargin"
+                    android:layout_height="1dp"/>
+
+                <Button
+                    android:id="@+id/btnBirth"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="7"
+                    android:padding="10dp"
+                    android:background="@drawable/btn_transparent"
+                    android:textSize="@dimen/txtSize"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/layoutMargin"
+                android:paddingEnd="@dimen/layoutMargin"
+                android:paddingTop="@dimen/basicMargin"
+                android:paddingBottom="@dimen/basicMargin"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text="흡연시작일"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/txtSize"/>
+
+                <View
+                    android:layout_width="@dimen/layoutMargin"
+                    android:layout_height="1dp"/>
+
+                <Button
+                    android:id="@+id/btnSmoke"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="7"
+                    android:padding="10dp"
+                    android:background="@drawable/btn_transparent"
+                    android:textSize="@dimen/txtSize"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/layoutMargin"
+                android:background="@drawable/btn_dialog"
+                android:text="가입 완료"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

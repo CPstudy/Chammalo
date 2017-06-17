@@ -269,6 +269,41 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/layoutMargin"
+                android:paddingEnd="@dimen/layoutMargin"
+                android:paddingTop="@dimen/basicMargin"
+                android:paddingBottom="@dimen/basicMargin"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text="하루흡연량"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/txtSize"/>
+
+                <View
+                    android:layout_width="@dimen/layoutMargin"
+                    android:layout_height="1dp"/>
+
+                <EditText
+                    android:id="@+id/edtAverage"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="7"
+                    android:padding="10dp"
+                    android:gravity="center"
+                    android:background="@drawable/edittext_white"
+                    android:textSize="@dimen/txtSize"
+                    android:hint="개비"/>
+
+            </LinearLayout>
+
             <Button
                 android:id="@+id/btnSubmit"
                 android:layout_width="match_parent"

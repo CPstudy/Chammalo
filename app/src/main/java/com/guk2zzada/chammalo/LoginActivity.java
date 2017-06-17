@@ -106,6 +106,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     if(result.equals("1")) {
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        intent.putExtra("strID", Post_NAME);
                         startActivity(intent);
                         finish();
                     } else {

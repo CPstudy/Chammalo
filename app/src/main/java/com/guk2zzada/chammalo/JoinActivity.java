@@ -33,6 +33,7 @@ public class JoinActivity extends AppCompatActivity {
     EditText edtPW1;
     EditText edtPW2;
     EditText edtName;
+    EditText edtAverage;
     Button btnMale;
     Button btnFemale;
     Button btnBirth;
@@ -63,6 +64,7 @@ public class JoinActivity extends AppCompatActivity {
         edtPW1 = (EditText) findViewById(R.id.edtPW1);
         edtPW2 = (EditText) findViewById(R.id.edtPW2);
         edtName = (EditText) findViewById(R.id.edtName);
+        edtAverage = (EditText) findViewById(R.id.edtAverage);
         btnMale = (Button) findViewById(R.id.btnMale);
         btnFemale = (Button) findViewById(R.id.btnFemale);
         btnBirth = (Button) findViewById(R.id.btnBirth);
@@ -113,16 +115,17 @@ public class JoinActivity extends AppCompatActivity {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!edtID.getText().toString().equals("") && !edtPW1.getText().toString().equals("") && !edtPW1.getText().toString().equals("") && !edtName.getText().toString().equals("")) {
+                if(!edtID.getText().toString().equals("") && !edtPW1.getText().toString().equals("") && !edtPW1.getText().toString().equals("") && !edtName.getText().toString().equals("") && !edtAverage.getText().toString().equals("")) {
                     String strID = edtID.getText().toString();
                     String strPW1 = edtPW1.getText().toString();
                     String strPW2 = edtPW2.getText().toString();
                     String strName = edtName.getText().toString();
+                    String strAve = edtAverage.getText().toString();
 
                     if(!strPW1.equals(strPW2)) {
                         showToast("암호가 일치하지 않습니다.");
                     } else {
-                        sendData(strID, strPW2, strName);
+                        sendData(strID, strPW2, strName, strAve);
                     }
                 } else {
                     showToast("비어있는 항목이 있습니다.");
@@ -131,7 +134,7 @@ public class JoinActivity extends AppCompatActivity {
         });
     }
 
-    private void sendData(String strID, String strPW, String strName) {
+    private void sendData(String strID, String strPW, String strName, String strAve) {
         String result = "0";
         try {
             URL url = new URL("http://sunsiri.cafe24.com/checkid-android.jsp");
@@ -147,7 +150,8 @@ public class JoinActivity extends AppCompatActivity {
             sb.append("name").append("=").append(strName).append("&");
             sb.append("gender").append("=").append(gender).append("&");
             sb.append("birth").append("=").append(strBirth).append("&");
-            sb.append("smoke").append("=").append(strSmoke);
+            sb.append("smoke").append("=").append(strSmoke).append("&");
+            sb.append("average").append("=").append(strAve);
             PrintWriter pw = new PrintWriter(new OutputStreamWriter(httpURLcon.getOutputStream(), "UTF-8"));
             pw.write(sb.toString());
             pw.flush();

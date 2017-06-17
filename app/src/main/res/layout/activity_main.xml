@@ -111,25 +111,59 @@
 
                 </LinearLayout>
 
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="@dimen/basicMargin">
+                    android:paddingStart="@dimen/basicMargin"
+                    android:paddingEnd="@dimen/basicMargin"
+                    android:paddingBottom="@dimen/basicMargin"
+                    android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="match_parent"
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="금연 시작일" />
+                        android:layout_weight="1"
+                        android:padding="@dimen/basicMargin"
+                        android:gravity="center"
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/txtStartDate"
-                        android:layout_width="match_parent"
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="금연 시작일" />
+
+                        <TextView
+                            android:id="@+id/txtStartDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2017년 1월 1일" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="2017년 1월 1일" />
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="@dimen/basicMargin"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="지금까지 흡연일" />
+
+                        <TextView
+                            android:id="@+id/txtSmokingDay"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2017년 1월 1일" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
+
+
 
             </LinearLayout>
 
@@ -145,7 +179,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="오늘 먹은 담배와 술"
+                    android:text="지금까지 먹은 담배와 술"
                     android:textColor="@color/colorText"
                     android:textSize="@dimen/txtSize" />
 

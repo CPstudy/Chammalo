@@ -47,7 +47,7 @@ public class ChallengeActivity extends Activity {
     ImageView imgView;
 
     int iDate = 0;
-    String strID = "";
+    String strUser = "";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,7 +91,7 @@ public class ChallengeActivity extends Activity {
 
         Intent intent = getIntent();
         iDate = intent.getIntExtra("iDate", 0);
-        strID = intent.getStringExtra("strID");
+        strUser = intent.getStringExtra("strUser");
 
         checkScore();
     }
@@ -246,8 +246,8 @@ public class ChallengeActivity extends Activity {
                             httpURLcon.setRequestMethod("POST");
                             httpURLcon.setRequestProperty("content-type", "application/x-www-form-urlencoded");
                             StringBuffer sb = new StringBuffer();
-                            sb.append("id").append("=").append(strID).append("&");
-                            sb.append("emblem").append("=").append(position);
+                            sb.append("id").append("=").append(strUser).append("&");
+                            sb.append("emblem").append("=").append(String.valueOf(position));
                             PrintWriter pw = new PrintWriter(new OutputStreamWriter(httpURLcon.getOutputStream(), "UTF-8"));
                             pw.write(sb.toString());
                             pw.flush();
@@ -259,14 +259,6 @@ public class ChallengeActivity extends Activity {
 
                             // 서버에서 받아온 결과문을 확인합니다.
                             System.out.println(result);
-
-                            XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
-                            XmlPullParser parser = factory.newPullParser();
-
-                            InputStream input = new ByteArrayInputStream(result.getBytes("UTF-8"));
-                            parser.setInput(input, "UTF-8");
-
-                            int EventType = parser.getEventType();
 
                         } catch (Exception e) {
                             e.printStackTrace();

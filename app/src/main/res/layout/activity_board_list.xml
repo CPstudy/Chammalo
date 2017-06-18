@@ -21,6 +21,14 @@
             android:textColor="@color/colorText"
             tools:text="참말로"/>
 
+        <ImageButton
+            android:id="@+id/btnAdd"
+            android:layout_width="@dimen/titlebar"
+            android:layout_height="@dimen/titlebar"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_create_white_24dp"
+            android:background="@drawable/btn_titlebar"/>
+
     </RelativeLayout>
 
     <ListView

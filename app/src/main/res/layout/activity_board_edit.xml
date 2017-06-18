@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context="com.guk2zzada.chammalo.MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/layTitle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titlebar">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="글쓰기"
+            android:textSize="@dimen/titleText"
+            android:textColor="@color/colorText"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btnSubmit"
+        android:layout_below="@+id/layTitle"
+        android:padding="@dimen/layoutMargin"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/edtSubject"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@drawable/edittext_white"
+            android:textSize="@dimen/txtSize"
+            android:hint="제목"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/layoutMargin" />
+
+        <EditText
+            android:id="@+id/edtContents"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:gravity="top|left"
+            android:background="@drawable/edittext_white"
+            android:hint="내용"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/layoutMargin"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/btn_dialog"
+        android:text="완료"/>
+
+</RelativeLayout>

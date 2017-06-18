@@ -162,16 +162,8 @@ public class JoinActivity extends AppCompatActivity {
                 result = line;
             }
 
-            // 서버에서 받아온 결과문을 확인합니다.
+            // 서버에서 받아온 결과문을 확인한다.
             System.out.println(result);
-
-            XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
-            XmlPullParser parser = factory.newPullParser();
-
-            InputStream input = new ByteArrayInputStream(result.getBytes("UTF-8"));
-            parser.setInput(input, "UTF-8");
-
-            int EventType = parser.getEventType();
 
         } catch (Exception e) {
             e.printStackTrace();

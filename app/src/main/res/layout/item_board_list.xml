@@ -15,6 +15,29 @@
         android:textSize="@dimen/txtSize"/>
 
     <TextView
+        android:id="@+id/txtWriter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtTitle"
+        android:layout_marginTop="@dimen/basicMargin"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:text="이명박"
+        android:textColor="@color/txtGray"/>
+
+    <TextView
+        android:id="@+id/txtHit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtTitle"
+        android:layout_marginTop="@dimen/basicMargin"
+        android:layout_marginEnd="@dimen/basicMargin"
+        android:layout_toStartOf="@+id/txtTime"
+        android:layout_alignParentBottom="true"
+        android:text="24"
+        android:textColor="@color/txtGray"/>
+
+    <TextView
         android:id="@+id/txtTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

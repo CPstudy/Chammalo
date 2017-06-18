@@ -28,9 +28,10 @@
         android:layout_height="220dp">
 
         <ImageView
+            android:id="@+id/imgView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/sample"/>
+            android:src="@drawable/img_char01" />
 
     </LinearLayout>
 

@@ -1,27 +1,22 @@
 package com.guk2zzada.chammalo;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.graphics.ColorMatrix;
 import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
 import android.os.StrictMode;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
@@ -29,36 +24,63 @@ import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
 public class MainActivity extends Activity{
 
+    private SharedPreferences mPref;
+    private SharedPreferences.Editor mPrefEdit;
+
     Calendar cal = Calendar.getInstance();
     Calendar calToday = Calendar.getInstance();
     Calendar calStartDate = Calendar.getInstance();
     Calendar calStartSmoke = Calendar.getInstance();
+    Button btnChallenge, btnBoard;
     TextView txtDate, txtStartDate;
     TextView txtNumSmoke, txtNumDrink;
     TextView txtPercent;
     TextView txtTitle;
     TextView txtSmokingDay;
+    TextView txtSaveMoney, txtSpendMoney;
     ImageButton btnSmoke, btnDrink;
-    Button btnChallenge, btnBoard;
+    ImageButton btnSettings;
+    ImageView imgEmblem;
     GraphView graphView;
 
+    final int EMBLEM[] = {
+            R.drawable.img_00,
+            R.drawable.img_01,
+            R.drawable.img_02,
+            R.drawable.img_03,
+            R.drawable.img_04,
+            R.drawable.img_05,
+            R.drawable.img_06,
+            R.drawable.img_07,
+            R.drawable.img_08,
+            R.drawable.img_09,
+            R.drawable.img_10,
+            R.drawable.img_11,
+            R.drawable.img_12
+    };
+
     final int LIFEMALE = 77;
-    int LIFEFEMALE = 84;
+    final int LIFEFEMALE = 84;
+    int iEmblem = 0;
     int iGender = 0;
     int iSmoke = 0;
     int iDrink = 0;
     int iLife = 0;
     int iAverage = 0;
+    int iSmokeDate = 0;
+    int iProjectDate = 0;
+    int iBeforeSmoke = 0;
+    int iPrice = 0;         // 담배 가격
     int cntSmoke = 1;
     int cntDrink = 1;
 
@@ -70,7 +92,7 @@ public class MainActivity extends Activity{
     int tMonth;
     int tDay;
 
-    String strID;
+    String strUser;
     String strName;
     String strStartDate;
     String strStartSmoke;
@@ -80,22 +102,29 @@ public class MainActivity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mPref = getSharedPreferences("Pref1", 0);
+        mPrefEdit = mPref.edit();
+
         Intent intent = getIntent();
-        strID = intent.getStringExtra("strID");
+        strUser = intent.getStringExtra("strID");
         iGender = intent.getIntExtra("iGender", 0);
         strName = intent.getStringExtra("strName");
 
         txtTitle = (TextView) findViewById(R.id.txtTitle);
 
+        btnChallenge = (Button) findViewById(R.id.btnChallenge);
+        btnBoard = (Button) findViewById(R.id.btnBoard);
         txtDate = (TextView) findViewById(R.id.txtDate);
         txtStartDate = (TextView) findViewById(R.id.txtStartDate);
         txtNumSmoke = (TextView) findViewById(R.id.txtNumSmoke);
         txtNumDrink = (TextView) findViewById(R.id.txtNumDrink);
         txtSmokingDay = (TextView) findViewById(R.id.txtSmokingDay);
+        txtSaveMoney = (TextView) findViewById(R.id.txtSaveMoney);
+        txtSpendMoney = (TextView) findViewById(R.id.txtSpendMoney);
         btnSmoke = (ImageButton) findViewById(R.id.btnSmoke);
         btnDrink = (ImageButton) findViewById(R.id.btnDrink);
-        btnChallenge = (Button) findViewById(R.id.btnChallenge);
-        btnBoard = (Button) findViewById(R.id.btnBoard);
+        btnSettings = (ImageButton) findViewById(R.id.btnSettings);
+        imgEmblem = (ImageView) findViewById(R.id.imgEmblem);
         graphView = (GraphView) findViewById(R.id.graphView);
         txtPercent = (TextView) findViewById(R.id.txtPercent);
 
@@ -105,6 +134,7 @@ public class MainActivity extends Activity{
         getInfo();
         init();
         smokeDate();
+        calcMoney();
 
         btnSmoke.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,6 +154,8 @@ public class MainActivity extends Activity{
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ChallengeActivity.class);
+                intent.putExtra("iDate", iProjectDate);
+                intent.putExtra("strUser", strUser);
                 startActivity(intent);
             }
         });
@@ -132,12 +164,34 @@ public class MainActivity extends Activity{
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), BoardListActivity.class);
+                intent.putExtra("strUser", strUser);
+                intent.putExtra("strName", strName);
+                intent.putExtra("iEmblem", iEmblem);
+                startActivity(intent);
+            }
+        });
+
+        btnSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), SettingActivity.class);
                 startActivity(intent);
             }
         });
     }
 
+    public void onResume() {
+        super.onResume();
+        // 액티비티로 다시 돌아왔을때 정보 갱신
+        getInfo();
+        init();
+        smokeDate();
+        calcMoney();
+    }
+
     private void init() {
+        iPrice = mPref.getInt("iPrice", 4500);
+
         year = cal.get(Calendar.YEAR);
         month = cal.get(Calendar.MONTH) + 1;
         day = cal.get(Calendar.DATE);
@@ -157,7 +211,8 @@ public class MainActivity extends Activity{
         long lStartDate = calStartDate.getTimeInMillis();
         long result = lToday - lStartDate;
 
-        txtDate.setText(String.valueOf(result / (24 * 60 * 60 * 1000)));
+        iProjectDate = (int)(result / (24 * 60 * 60 * 1000));
+        txtDate.setText(String.valueOf(iProjectDate));
 
         if(iGender == 0) {
             iLife = LIFEMALE;
@@ -170,6 +225,8 @@ public class MainActivity extends Activity{
         iLife = iAverage - (iSmoke / 20);
         txtPercent.setText(iLife + "/" + iAverage + "세");
         graphView.setGraph(iLife, iAverage);
+
+        imgEmblem.setImageResource(EMBLEM[iEmblem]);
     }
 
     private void smokeDate() {
@@ -188,6 +245,7 @@ public class MainActivity extends Activity{
         long lStartDate = calStartDate.getTimeInMillis();
         long result = lStartDate - lStartSmoke;
 
+        iSmokeDate = (int)(result / (24 * 60 * 60 * 1000));
         txtSmokingDay.setText((result / (24 * 60 * 60 * 1000)) + "일");
     }
 
@@ -202,7 +260,7 @@ public class MainActivity extends Activity{
             httpURLcon.setRequestMethod("POST");
             httpURLcon.setRequestProperty("content-type", "application/x-www-form-urlencoded");
             StringBuffer sb = new StringBuffer();
-            sb.append("id").append("=").append(strID);
+            sb.append("id").append("=").append(strUser);
             PrintWriter pw = new PrintWriter(new OutputStreamWriter(httpURLcon.getOutputStream(), "UTF-8"));
             pw.write(sb.toString());
             pw.flush();
@@ -223,6 +281,8 @@ public class MainActivity extends Activity{
             strStartSmoke = jsonObject.getString("start_smoke");
             iSmoke = jsonObject.getInt("smoke");
             iDrink = jsonObject.getInt("drink");
+            iBeforeSmoke = jsonObject.getInt("ave_smoke");
+            iEmblem = jsonObject.getInt("emblem");
             txtTitle.setText(strName + "님");
             txtNumSmoke.setText(iSmoke + "개비");
             txtNumDrink.setText(iDrink + "잔");
@@ -230,6 +290,75 @@ public class MainActivity extends Activity{
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void resetEmblem() {
+        String result = "0";
+        try {
+            URL url = new URL("http://sunsiri.cafe24.com/updateemblem-android.jsp");
+            HttpURLConnection httpURLcon = (HttpURLConnection) url.openConnection();
+            httpURLcon.setDefaultUseCaches(false);
+            httpURLcon.setDoInput(true);
+            httpURLcon.setDoOutput(true);
+            httpURLcon.setRequestMethod("POST");
+            httpURLcon.setRequestProperty("content-type", "application/x-www-form-urlencoded");
+            StringBuffer sb = new StringBuffer();
+            sb.append("id").append("=").append(strUser).append("&");
+            sb.append("emblem").append("=").append(0);
+            PrintWriter pw = new PrintWriter(new OutputStreamWriter(httpURLcon.getOutputStream(), "UTF-8"));
+            pw.write(sb.toString());
+            pw.flush();
+            BufferedReader bf = new BufferedReader(new InputStreamReader(httpURLcon.getInputStream(), "UTF-8"));
+            String line;
+            while ((line = bf.readLine()) != null) {
+                result = line;
+            }
+
+            // 서버에서 받아온 결과문을 확인합니다.
+            System.out.println(result);
+
+            XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+            XmlPullParser parser = factory.newPullParser();
+
+            InputStream input = new ByteArrayInputStream(result.getBytes("UTF-8"));
+            parser.setInput(input, "UTF-8");
+
+            int EventType = parser.getEventType();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void calcMoney() {
+        int iSaveMoney;
+        int iSpendMoney;
+
+        iSaveMoney = iProjectDate * iBeforeSmoke * (iPrice / 20);
+        iSpendMoney = iSmoke * (iPrice / 20);
+
+        DecimalFormat df = new DecimalFormat("#,###");      // 자릿수 표시
+        txtSaveMoney.setText(df.format(iSaveMoney) + "원");
+        txtSpendMoney.setText(df.format(iSpendMoney) + "원");
+    }
+
+    private void resetDate() {
+        getInfo();
+        init();
+        smokeDate();
+        resetEmblem();
+    }
+
+    private String getToday() {
+        String result;
+
+        year = cal.get(Calendar.YEAR);
+        month = cal.get(Calendar.MONTH) + 1;
+        day = cal.get(Calendar.DATE);
+
+        result = String.format(Locale.KOREA, "%04d-%02d-%02d", year, month, day);
+
+        return result;
     }
 
     private void updateData(int smoke, int drink) {
@@ -243,7 +372,8 @@ public class MainActivity extends Activity{
             httpURLcon.setRequestMethod("POST");
             httpURLcon.setRequestProperty("content-type", "application/x-www-form-urlencoded");
             StringBuffer sb = new StringBuffer();
-            sb.append("id").append("=").append(strID).append("&");
+            sb.append("id").append("=").append(strUser).append("&");
+            sb.append("date").append("=").append(getToday()).append("&");
             sb.append("smoke").append("=").append(smoke).append("&");
             sb.append("drink").append("=").append(drink);
             PrintWriter pw = new PrintWriter(new OutputStreamWriter(httpURLcon.getOutputStream(), "UTF-8"));
@@ -258,6 +388,7 @@ public class MainActivity extends Activity{
 
             // 서버에서 받아온 결과문을 확인합니다.
             System.out.println(result);
+            resetDate();
 
         } catch (Exception e) {
             e.printStackTrace();

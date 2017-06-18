@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_dialog"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titlebar"
+        android:paddingLeft="@dimen/layoutMargin">
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="경고"
+            android:textSize="@dimen/titleText"
+            android:textColor="@color/colorText" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dialogMargin"
+        android:padding="@dimen/basicMargin">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="정말로 삭제하시겠습니까?"
+            android:textSize="@dimen/txtDialog"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dialogMargin"
+        android:gravity="right"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/dbtnCancel"
+            android:layout_width="@dimen/btnDialogWidth"
+            android:layout_height="@dimen/btnDialogHeight"
+            android:background="@drawable/btn_dialog"
+            android:text="취소"
+            android:textSize="@dimen/btnDialog"/>
+
+        <Button
+            android:id="@+id/dbtnOk"
+            android:layout_width="@dimen/btnDialogWidth"
+            android:layout_height="@dimen/btnDialogHeight"
+            android:background="@drawable/btn_dialog"
+            android:text="확인"
+            android:textSize="@dimen/btnDialog"/>
+
+    </LinearLayout>
+
+</LinearLayout>

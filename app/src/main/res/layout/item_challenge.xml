@@ -1,16 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layBack"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_vertical"
     android:padding="@dimen/layoutMargin"
-    android:gravity="center"
     android:background="@drawable/btn_transparent">
 
-    <TextView
-        android:id="@+id/txtText"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="도전과제"
-        android:textSize="@dimen/txtSize"/>
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/imgIcon"
+        android:layout_marginEnd="@dimen/layoutMargin"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/txtText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="도전과제"
+            android:textSize="@dimen/txtSize"/>
+
+        <TextView
+            android:id="@+id/txtSubText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="설명"
+            android:textSize="@dimen/subText"
+            android:textColor="@color/txtGray"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imgIcon"
+        android:layout_width="@dimen/titlebar"
+        android:layout_height="@dimen/titlebar"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/img_01"/>
+
+</RelativeLayout>

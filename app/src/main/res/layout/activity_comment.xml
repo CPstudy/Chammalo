@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context="com.guk2zzada.chammalo.MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/layTitle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titlebar">
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="댓글"
+            android:textSize="@dimen/titleText"
+            android:textColor="@color/colorText"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/layTitle"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ListView
+                android:id="@+id/list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/layComment"
+                android:padding="@dimen/basicMargin"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="@dimen/basicMargin"
+                android:drawSelectorOnTop="true"
+                android:scrollbars="none"/>
+
+            <RelativeLayout
+                android:id="@+id/layComment"
+                android:layout_width="match_parent"
+                android:layout_height="62dp"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/edtComment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/basicMargin"
+                    android:layout_toStartOf="@+id/btnSubmit"
+                    android:padding="@dimen/basicMargin"
+                    android:background="@drawable/edittext_white"
+                    android:hint="댓글을 입력해주세요."/>
+
+                <Button
+                    android:id="@+id/btnSubmit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/basicMargin"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/btn_transparent"
+                    android:text="등록"/>
+
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+
+</RelativeLayout>

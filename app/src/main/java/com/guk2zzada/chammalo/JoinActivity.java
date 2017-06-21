@@ -135,6 +135,7 @@ public class JoinActivity extends AppCompatActivity {
     }
 
     private void sendData(String strID, String strPW, String strName, String strAve) {
+        // 
         String result = "0";
         try {
             URL url = new URL("http://sunsiri.cafe24.com/checkid-android.jsp");

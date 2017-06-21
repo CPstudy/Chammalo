@@ -53,6 +53,7 @@ public class MainActivity extends Activity{
     ImageView imgEmblem;
     GraphView graphView;
 
+    // 엠블럼 이미지 변수
     final int EMBLEM[] = {
             R.drawable.img_00,
             R.drawable.img_01,
@@ -69,42 +70,47 @@ public class MainActivity extends Activity{
             R.drawable.img_12
     };
 
+    // 남녀 평균 수명
     final int LIFEMALE = 77;
     final int LIFEFEMALE = 84;
-    int iEmblem = 0;
-    int iGender = 0;
-    int iSmoke = 0;
-    int iDrink = 0;
-    int iLife = 0;
-    int iAverage = 0;
-    int iSmokeDate = 0;
-    int iProjectDate = 0;
-    int iBeforeSmoke = 0;
+    
+    int iEmblem = 0;        // 엠블럼
+    int iGender = 0;        // 성별 남: 0, 여: 1
+    int iSmoke = 0;         // 흡연량
+    int iDrink = 0;         // 음주량
+    int iLife = 0;          // 기대수명
+    int iAverage = 0;       // 평균수명
+    int iSmokeDate = 0;     // 지금까지 흡연일
+    int iProjectDate = 0;   // 오늘까지 프로젝트 진행 일수
+    int iBeforeSmoke = 0;   // 하루흡연량
     int iPrice = 0;         // 담배 가격
-    int cntSmoke = 1;
-    int cntDrink = 1;
+    int cntSmoke = 1;       // 다이얼로그 임시 흡연량
+    int cntDrink = 1;       // 다이얼로그 임시 음주량
 
-    int year;
-    int month;
-    int day;
+    // 오늘 날짜
+    int year;               // 년
+    int month;              // 월
+    int day;                // 일
 
-    int tYear;
-    int tMonth;
-    int tDay;
+    // 흡연 시작일
+    int tYear;              // 년
+    int tMonth;             // 월
+    int tDay;               // 일
 
-    String strUser;
-    String strName;
-    String strStartDate;
-    String strStartSmoke;
+    String strUser;         // 아이디
+    String strName;         // 사용자 이름
+    String strStartDate;    // 프로젝트 시작일
+    String strStartSmoke;   // 흡연 시작일
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        
         mPref = getSharedPreferences("Pref1", 0);
         mPrefEdit = mPref.edit();
 
+        // 인텐트 받아왔음
         Intent intent = getIntent();
         strUser = intent.getStringExtra("strID");
         iGender = intent.getIntExtra("iGender", 0);
@@ -250,6 +256,7 @@ public class MainActivity extends Activity{
     }
 
     private void getInfo() {
+        // DB에서 로그인 한 사용자 정보를 불러옴
         String result = "";
         try {
             URL url = new URL("http://sunsiri.cafe24.com/getmember-android.jsp");
@@ -293,6 +300,7 @@ public class MainActivity extends Activity{
     }
 
     private void resetEmblem() {
+        // 엠블럼 초기화
         String result = "0";
         try {
             URL url = new URL("http://sunsiri.cafe24.com/updateemblem-android.jsp");
@@ -331,18 +339,23 @@ public class MainActivity extends Activity{
     }
 
     private void calcMoney() {
-        int iSaveMoney;
-        int iSpendMoney;
+        // 금액 환산
+        int iSaveMoney;     // 절약한 돈
+        int iSpendMoney;    // 낭비한 돈
 
+        // 절약한 돈 = 프로젝트 시작부터 오늘까지 * 하루평균흡연량 * (가격 / 20)
         iSaveMoney = iProjectDate * iBeforeSmoke * (iPrice / 20);
+        
+        // 낭비한 돈 = 흡연량 * (가격 / 20);
         iSpendMoney = iSmoke * (iPrice / 20);
 
-        DecimalFormat df = new DecimalFormat("#,###");      // 자릿수 표시
+        DecimalFormat df = new DecimalFormat("#,###");          // 자릿수 표시
         txtSaveMoney.setText(df.format(iSaveMoney) + "원");
         txtSpendMoney.setText(df.format(iSpendMoney) + "원");
     }
 
     private void resetDate() {
+        // 날짜 초기화
         getInfo();
         init();
         smokeDate();
@@ -350,6 +363,7 @@ public class MainActivity extends Activity{
     }
 
     private String getToday() {
+        // 오늘 날짜 얻기
         String result;
 
         year = cal.get(Calendar.YEAR);
@@ -362,6 +376,7 @@ public class MainActivity extends Activity{
     }
 
     private void updateData(int smoke, int drink) {
+        // 데이터 업데이트: 흡연량, 음주량, 날짜 
         String result = "";
         try {
             URL url = new URL("http://sunsiri.cafe24.com/updatenumber-android.jsp");
@@ -396,6 +411,7 @@ public class MainActivity extends Activity{
     }
 
     private void alertSmokeDialog() {
+        // 흡연량 설정 다이얼로그
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -408,6 +424,7 @@ public class MainActivity extends Activity{
         final TextView dtxtNum = (TextView) dialog.findViewById(R.id.dtxtNum);
 
         dbtnMinus.setOnClickListener(new View.OnClickListener() {
+            // 임시 변수를 통해 계산
             @Override
             public void onClick(View v) {
                 if(cntSmoke != 1) {
@@ -450,6 +467,7 @@ public class MainActivity extends Activity{
     }
 
     private void alertDrinkDialog() {
+        // 음주량 
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));

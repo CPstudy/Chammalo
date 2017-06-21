@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class SettingActivity extends AppCompatActivity {
+    // 담배 가격을 설정할 수 있는 액티비티
 
     private SharedPreferences mPref;
     private SharedPreferences.Editor mPrefEdit;

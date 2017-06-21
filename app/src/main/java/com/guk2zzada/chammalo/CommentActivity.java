@@ -260,6 +260,7 @@ public class CommentActivity extends AppCompatActivity {
     }
 
     private class ViewHolder {
+        // 뷰의 효율적 관리를 위해 사용하는 ViewHolder
         private ImageView imgIcon;
         private TextView txtComment;
         private TextView txtWriter;
@@ -336,14 +337,15 @@ public class CommentActivity extends AppCompatActivity {
     }
 }
 
+// 댓글 정보
 class CustomCommentList {
-    int id;
-    String strWriterId;
-    String strWriter;
-    String strComment;
-    String strRegDate;
-    String strModDate;
-    int iEmblem;
+    int id;                 // 댓글 고유 번호
+    String strWriterId;     // 작성자 아이디
+    String strWriter;       // 작성자 이름
+    String strComment;      // 댓글 내용
+    String strRegDate;      // 입력 시간
+    String strModDate;      // 수정 시간
+    int iEmblem;            // 
 
     CustomCommentList(int id, String strWriterId, String strWriter, String strComment, String strRegDate, String strModDate, int iEmblem) {
         this.id = id;

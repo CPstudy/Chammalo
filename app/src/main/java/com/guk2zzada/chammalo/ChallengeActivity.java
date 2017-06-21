@@ -59,6 +59,7 @@ public class ChallengeActivity extends Activity {
         list = (ListView) findViewById(R.id.list);
         imgView = (ImageView) findViewById(R.id.imgView);
 
+        // 도전 과제 정보를 담을 ArrayList
         arrCustomList = new ArrayList<CustomList>();
         customlist = new CustomList("프로젝트 시작", "드디어 시작합니다.", false, R.drawable.img_00);
         arrCustomList.add(customlist);

@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 
 public class GraphView extends View {
+	// 그래프 그리는 
 
 	private float mCenterX; // View의 Center x값
 	private float mCenterY; // View의 Center y값
